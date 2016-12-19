@@ -1,16 +1,17 @@
 
 
-fmt:
-	go fmt on.go
 
 build: fmt
-	go build on.go
-	ln -sf on off
+	go build wemo-control.go
+	ln -sf wemo-control off
+	ln -sf wemo-control on
+
+fmt:
+	go fmt wemo-control.go
 
 install: build
 	mkdir -p ~/bin
-	cp -pr on off ~/bin
-
+	cp -pr on off wemo-control ~/bin
 
 clean:
-	rm -f on off
+	rm -f on off wemo-control
